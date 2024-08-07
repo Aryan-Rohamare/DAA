@@ -1,27 +1,19 @@
 #include<iostream>
+#include<cmath>
 using namespace std;
 
-int main ()
+int main()
 {
-    int n,flag=0,fact=0,i,count=0,rev,revn;
-    cout<<"Enter number : ";
+    int a,count,fact=1,n,total,i,x=0;
+    cout<<"Enter value : ";
     cin>>n;
 
-    while(flag!=1){
-        fact=fact*i;
-        i++;
-        while(rev>0){
-            revn=revn*10+revn%10;
-            rev=revn/10;
-            if(rev==0){
-                count++;
-            }
-            if(count==n){
-                flag=1;
-                
-            }
+    for(i=0;i<100;i++){
+        total=floor(i/5)+floor(i/25)+floor(i/125);
+        if(total==n){
+            count=i;
+            break;
         }
-        
     }
-    cout<<fact;    
+    cout<<count;
 }
