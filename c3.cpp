@@ -8,29 +8,25 @@ operations.
 Input: s1 = daBcd s2 = ABC Output: yes
 Input: s1 = argaju s2 = RAJ Output: yes*/
 #include<iostream>
+#include<string>
+#include<algorithm>
 using namespace std;
-
-int main(){
-    string s1,s2;
-    char a[10],b[10];
+int check(string s1,string s2){
+    char a[10],b[10]    ;
     int count=0;
-    cout<<"\nEnter string 1 : ";
-    cin>>s1;
-    cout<<"\nEnter string 2 : ";
-    cin>>s2;
-    
-    
     for(int i=0;i<s1.length();i++){
-       a[i]=s1[i];
+       a[i]=tolower(s1[i]);
+
        
     }
     
     for(int i=0;i<s2.length();i++){
-         b[i]=s2[i];
+         b[i]=tolower(s2[i]);
     }
     for(int i=0;i<s1.length();i++){
-        for(int j=1;j<s1.length();j++){
+        for(int j=0;j<s1.length();j++){
             if(a[i]==b[j]){
+                s1.erase(s1.begin() + i); 
                 count++;
                 break;
             }
@@ -39,12 +35,18 @@ int main(){
     if(count==s2.length()){
         cout<<"\nYES";
     }
-    for(int i=0;i<s1.length();i++){
-        cout<<a[i]<<" ";
+    else{
+        cout<<"\nNO";
     }
-    cout<<count;
 
-    
-
-    
+}
+int main(){
+    string s1,s2;
+    char a[10],b[10];
+    int count=0;
+    cout<<"\nEnter string 1 : ";
+    cin>>s1;
+    cout<<"\nEnter string 2 : ";
+    cin>>s2;
+    check(s1,s2);
 }
