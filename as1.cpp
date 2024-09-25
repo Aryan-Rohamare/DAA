@@ -1,38 +1,30 @@
-#include <iostream> 
+/*Implement a problem of number of zeroes.
+Statement: Given an array of 1s and 0s which has all 
+1s first followed by all 0s? Find the number of 0s. 
+Count the number of zeroes in the given array.*/
+#include<iostream>
 using namespace std;
-
-int main() {
-    int a[10], size, count = 0;
-    bool flag = false;
-
-    cout << "Enter array size (up to 10): ";
-    cin >> size;
-
-    cout << "Enter array elements (1/0): ";
-    for (int i = 0; i < size; i++) {
-        cin >> a[i];
-    }
-
-   
-    for (int i = 0; i < size; i++) {
-        if (a[i] > 1 || a[i] < 0) {
-            flag = true;
-            break;
+int main(){
+    int a[]={1,1,1,0,0},count=0;
+    int low=0;
+    int size=end(a)-begin(a);
+    int high=size-1;
+    int mid;
+    while(low<=high){
+        mid=(low+high)/2;
+        if(a[mid]==1)
+        {
+            low=mid+1;    
         }
-    }
-
-    if (flag) {
-        cout << "Invalid input\n";
-    } 
-    else {
-        
-        for (int i = 0; i < size; i++) {
-            if (a[i] == 0) {
-                count++;
-            }
+        else
+        {
+            high=mid-1;   
         }
-        cout << "Number of 0s are: " << count << endl;
+      
     }
+    for(int i=mid+1;i<=size;i++)
+        count++;
 
+    cout<<"no of zero's are :"<<count;
     return 0;
 }
